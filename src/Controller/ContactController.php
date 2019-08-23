@@ -14,7 +14,7 @@ class ContactController extends AbstractController
     public function contact()
     {
         $form = $this->createForm(ContactType::class);
-        return $this->render('contact/contact.html.twig', [
+        return $this->render('contact/index.html.twig', [
             'our_form' => $form->createView()
         ]);
     }
