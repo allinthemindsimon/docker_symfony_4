@@ -1,12 +1,43 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+        <meta content="" name="description">
+        <meta content="" name="author">
+
+        <title>
+            {% block css %}Title Default
+            {% endblock %}
+        </title>
+
+        <!-- Bootstrap core CSS -->
+        <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/custom-styles.css') }}"/> {% block styles %}{% endblock %}
+        </head>
+
+        <body>
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                    <div class="container">
+                        <a class="navbar-brand" href="{{ path('welcome') }}">Home</a>
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="navbar-brand" href="{{ path('hello_page') }}">Hello Page</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="navbar-brand" href="{{ path('contact') }}">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </nav>
+            </header>
+
+            <main class="container main" role="main"> {% block main %}{% endblock %}
+                </main>
+                {% block javascript %}{% endblock %}
+            </body>
+        </html>
