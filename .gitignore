@@ -10,3 +10,4 @@
 ###> docker ###
 .docker/data/*
 ###< docker ###
+.DS_Store
