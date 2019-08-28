@@ -2,11 +2,9 @@
 
 namespace App\Form;
 
-use DateTime;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,7 +17,10 @@ class ContactType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('email', EmailType::class)
-            ->add('dateOfBirth', DateTimeType::class)
+            ->add('dateOfBirth', DateTimeType::class, [
+                'label' => 'Date',
+                'format' => 'dd MM yyyy', 'years' => range(date('1980'), date('2009'))
+            ])
             ->add('message', TextareaType::class);
     }
 
